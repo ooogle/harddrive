@@ -1,0 +1,254 @@
+<!doctype html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300&display=swap" rel="stylesheet">
+    <meta name="viewport"
+  content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, height=device-height, target-densitydpi=device-dpi" />
+ <meta name="description"
+  content="Is you hard drive empty? Download more hard drive!">
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/ooogle/harddrive/master/hard%20drive.png">
+  <title>Download More Hard Drive</title>
+    <style>
+        body {
+            background-color: rgb(39, 39, 39);
+            color: white;
+        }
+
+        .zeroto100 {
+            animation: grow 5s;
+            background: blue;
+            height: 20px;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        #sb {
+            background: blue;
+            height: 20px;
+            text-align: center;
+        }
+
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+            width: 65%;
+            text-align: center;
+            font-family: sans-serif;
+            font-weight: lighter;
+            color: wheat;
+        }
+
+        @keyframes grow {
+            0% {
+                width: 0%;
+            }
+            10%{
+                width:02%;
+            }
+            20%{
+                width:10%;
+            }
+            40% {
+                width: 25%;
+            }
+
+            45% {
+                width: 50%;
+            }
+
+            65% {
+                width: 99%;
+            }
+
+            95% {
+                width: 99%;
+            }
+
+            100% {
+                width: 100%
+            }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+        .plan{
+            border-radius: 5px;
+            border: 2px solid wheat;
+            background-color: rgb(61, 61, 61);
+            margin-left: 5px;
+        }
+        p{
+            font-weight: lighter;
+        }
+        .smallbutton{
+            color: wheat;
+            background: rgb(63, 63, 63);
+            font-size: 25px;
+            border: 2px solid wheat;
+            border-radius: 3px;
+            width: 150px;
+            cursor: pointer;
+        }
+        .smallbutton:hover{
+            background: rgb(85, 85, 85);
+        }
+        .ad{
+            display: inline-block;
+        }
+        @media only screen and (min-width: 950px) {
+            .button {
+                color: wheat;
+                background: rgb(63, 63, 63);
+                font-size: 50px;
+                border: 5px solid wheat;
+                cursor: pointer;
+            }
+
+            #bb {
+                width: 500px;
+                background: wheat;
+                height: 20px;
+            }
+            .mobileplans{
+                display: none;
+            }
+            #ads{
+                width:50%;
+                position: absolute;
+                top: 90%;
+                left:25%;
+            }
+        }
+
+        @media only screen and (max-width: 949px) {
+            .button {
+                color: wheat;
+                background: rgb(63, 63, 63);
+                font-size: 30px;
+                border: 5px solid wheat;
+                cursor: pointer;
+                width: 90%;
+            }
+
+            #bb {
+                width: 90%;
+                background: wheat;
+                height: 20px;
+            }
+            table{
+                display: none;
+            }
+            #ads{
+                width:90%;
+                position: absolute;
+                top: 150%;
+                left:5%;
+            }
+        }
+    </style>
+    <script>
+        var thing = false;
+        var plan = "";
+        function button() {
+            document.getElementById("button").classList.add("hidden");
+            document.getElementById("sb").classList.add("zeroto100");
+            document.getElementById("bb").classList.remove("hidden");
+            thing = true;
+            grow();
+            setTimeout(function () {
+                document.getElementById("bb").classList.add("hidden");
+                document.getElementById("done").classList.remove("hidden");
+                document.getElementById('donn').innerHTML=plan+" plan downloaded!";
+            }, 5500);
+        }
+        function chooseplan(size){
+            document.getElementById("button").classList.remove("hidden");
+            plan = size;
+            document.getElementById('plans').classList.add('hidden');
+        }
+        function grow() {
+            var f = Math.round(Number(window.getComputedStyle(document.getElementById('sb')).getPropertyValue("width").replace('px', '')) / Number(window.getComputedStyle(document.getElementById('bb')).getPropertyValue("width").replace('px', '')) * 100);
+            document.getElementById('sb').innerHTML = f + "%";
+            if (f == 100) {
+                thing = false;
+            }
+            if (thing) {
+                setTimeout(function () { grow() }, 10);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1 class="center">Download More Hard drive!</h1>
+    <div id="plans">
+    <table class="center">
+        <tr>
+            <th>
+                <div class="plan">
+                    <h2>500GB Plan</h2>
+                    <p>500GB of cloud hard drive</p>
+                    <div class="smallbutton center" onclick="chooseplan('500GB')">Choose Plan</div>
+                    <br>
+                </div>
+            </th>
+            <th>
+                <div class="plan">
+                    <h2>1TB Plan</h2>
+                    <p>1TB of cloud hard drive</p>
+                    <div class="smallbutton center" onclick="chooseplan('1TB')">Choose Plan</div>
+                    <br>
+                </div>
+            </th>
+            <th>
+                <div class="plan">
+                    <h2>100TB Plan</h2>
+                    <p>100TB of cloud hard drive</p>
+                    <div class="smallbutton center" onclick="chooseplan('100TB')">Choose Plan</div>
+                    <br>
+                </div>
+            </th>
+        </tr>
+    </table>
+    <div class="mobileplans center">
+        <div class="plan">
+            <h2>500GB Plan</h2>
+            <p>500GB of cloud hard drive</p>
+            <div class="smallbutton center" onclick="chooseplan('500GB')">Choose Plan</div>
+            <br>
+        </div>
+        <br>
+        <div class="plan">
+            <h2>1TB Plan</h2>
+            <p>1TB of cloud hard drive</p>
+            <div class="smallbutton center" onclick="chooseplan('1TB')">Choose Plan</div>
+            <br>
+        </div>
+        <br>
+        <div class="plan">
+            <h2>100TB Plan</h2>
+            <p>100TB of cloud hard drive</p>
+            <div class="smallbutton center" onclick="chooseplan('100TB')">Choose Plan</div>
+            <br>
+        </div>
+    </div>
+</div>
+    <div class="center button hidden" onclick="button()" id="button">Download!</div>
+    <div class="center hidden" id="bb">
+        <div id="sb">0%</div>
+    </div>
+    <div class="center hidden" id="done">
+        <h1 class="center">Complete!</h1>
+        <p class="center" id="donn">____ plan downloaded!</p>
+        <img src="https://raw.githubusercontent.com/ooogle/harddrive/master/done.png" width="100">
+    </div>
+    <br><br>
+    <div id="ads" class="center">
+    <iframe data-aa="1345072" src="//acceptable.a-ads.com/1345072" scrolling="no" style="border:0px; padding:0; width:100%; height:100%; overflow:hidden" allowtransparency="true" class="ad"></iframe>
+    <iframe data-aa="1345072" src="//acceptable.a-ads.com/1345072" scrolling="no" style="border:0px; padding:0; width:100%; height:100%; overflow:hidden" allowtransparency="true" class="ad"></iframe>
+    <iframe data-aa="1345072" src="//acceptable.a-ads.com/1345072" scrolling="no" style="border:0px; padding:0; width:100%; height:100%; overflow:hidden" allowtransparency="true" class="ad"></iframe>
+    </div>
+</div>
+</body>
+</html>
