@@ -97,6 +97,9 @@
         .ad{
             display: inline-block;
         }
+        html{
+            scroll-behavior: smooth;
+        }
         @media only screen and (min-width: 950px) {
             .button {
                 color: wheat;
@@ -167,6 +170,7 @@
             document.getElementById("button").classList.remove("hidden");
             plan = size;
             document.getElementById('plans').classList.add('hidden');
+            window.scrollTo(0, 0);
         }
         function grow() {
             var f = Math.round(Number(window.getComputedStyle(document.getElementById('sb')).getPropertyValue("width").replace('px', '')) / Number(window.getComputedStyle(document.getElementById('bb')).getPropertyValue("width").replace('px', '')) * 100);
